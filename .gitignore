@@ -16,6 +16,9 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+*.DS_Store # OS X Finder cache files
+.DS_Store # OS X Finder cache files
+
 
 # CocoaPods
 #
