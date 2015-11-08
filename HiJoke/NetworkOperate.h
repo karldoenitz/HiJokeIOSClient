@@ -28,6 +28,11 @@
                                 cookie:(NSString *)cookie
                                session:(NSString *)session;
 
+- (NSMutableDictionary *)write_joke:(NSString *)title
+                            content:(NSString *)content
+                             cookie:(NSString *)cookie
+                            session:(NSString *)session;
+
 //获取cookie
 - (NSMutableArray *)getCookies;
 

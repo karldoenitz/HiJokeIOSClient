@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NetworkOperate.h"
 
 @interface WriteJokeViewController : UIViewController
+
+@property NetworkOperate *networkOperate;
+
+@property UIAlertController *alert;
 
 @property (weak, nonatomic) IBOutlet UITextField *jokeTitleTextInput;
 

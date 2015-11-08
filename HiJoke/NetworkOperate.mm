@@ -81,6 +81,23 @@
     return [self.networkTools convert_json:json_result];
 }
 
+- (NSMutableDictionary *)write_joke:(NSString *)title
+                            content:(NSString *)content
+                             cookie:(NSString *)cookie
+                            session:(NSString *)session
+{
+    NSString *cookie_session = [NSString stringWithFormat:@"usercode=%@;cppcms_session=%@", cookie, session];
+    NSString *origin_post_data = [NSString stringWithFormat:@"title=%@&content=%@", title, content];
+    NSString *data = [origin_post_data stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+    NSString *request_url = [NSString stringWithFormat:self.baseurl, @"write-joke"];
+    char *post_cookie = (char *)[cookie_session UTF8String];
+    char *post_data = (char *)[data UTF8String];
+    char *url = (char *)[request_url UTF8String];
+    char *json = write_comment(url, post_cookie, post_data);
+    NSString *json_string = [NSString stringWithUTF8String:json];
+    return [self.networkTools convert_json:json_string];
+}
+
 //从plist中取出cookie
 - (NSMutableArray *)getCookies
 {
