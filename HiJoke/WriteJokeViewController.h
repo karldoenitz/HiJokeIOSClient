@@ -10,6 +10,10 @@
 
 @interface WriteJokeViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *jokeTitleTextInput;
+
 @property (weak, nonatomic) IBOutlet UITextView *jokeContentTextView;
+
+- (IBAction)pushJokeButton:(id)sender;
 
 @end

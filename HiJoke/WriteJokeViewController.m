@@ -38,4 +38,6 @@
 }
 */
 
+- (IBAction)pushJokeButton:(id)sender {
+}
 @end

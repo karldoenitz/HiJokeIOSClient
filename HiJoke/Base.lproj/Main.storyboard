@@ -158,6 +158,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="发表"/>
+                                <connections>
+                                    <action selector="pushJokeButton:" destination="gNV-Ox-Kfi" eventType="touchUpInside" id="bet-Yh-SLM"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k7J-aQ-L3V">
                                 <rect key="frame" x="20" y="131" width="560" height="398"/>
@@ -201,6 +204,7 @@
                     </view>
                     <connections>
                         <outlet property="jokeContentTextView" destination="k7J-aQ-L3V" id="RhN-Kd-I0a"/>
+                        <outlet property="jokeTitleTextInput" destination="AWG-s2-ias" id="2zZ-CX-j8Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rjp-dE-awi" userLabel="First Responder" sceneMemberID="firstResponder"/>
