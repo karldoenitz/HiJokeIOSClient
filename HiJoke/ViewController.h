@@ -13,10 +13,11 @@
 #import "JokeListCell.h"
 #import "NetworkOperate.h"
 #import "ShowCommentViewController.h"
+#import "MJRefresh.h"
 
 @interface ViewController : UIViewController
 {
-    NSArray *alldata;
+    NSMutableArray *alldata;
     NSArray *allsubdata;
 }
 

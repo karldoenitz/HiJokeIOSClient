@@ -438,9 +438,11 @@ struct ResultStruct *login(char *url, char *usernamepassword)
     }
     curl_global_cleanup();
     struct ResultStruct *rs = new struct ResultStruct;
-    rs->cookie_list = cookie->data;
-    cookie = cookie->next;
-    rs->session_id = cookie->data;
+    if (cookie) {
+        rs->cookie_list = cookie->data;
+        cookie = cookie->next;
+        rs->session_id = cookie->data;
+    }
     rs->memory = chunk->memory;
     return rs;
 }

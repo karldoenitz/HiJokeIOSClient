@@ -12,7 +12,7 @@
 
 - (id)init
 {
-    self.baseurl = @"http://192.168.1.102:8888/%@";
+    self.baseurl = @"http://192.168.1.103:8888/%@";
     self.networkTools = [[NetworkTools alloc] init];
     return self;
 }
@@ -47,21 +47,24 @@
     struct ResultStruct *result = login(request_url, login_usernamepassword);
     char *cookie = result->cookie_list;
     char *session_id = result->session_id;
-    NSString *response_cookie = [NSString stringWithUTF8String:cookie];
-    NSString *cppcms_session = [NSString stringWithUTF8String:session_id];
-    NSArray *cookie_array = [response_cookie componentsSeparatedByString:@"\t"];
-    NSArray *cppcms_session_array = [cppcms_session componentsSeparatedByString:@"\t"];
-    int cppcms_session_index = (int)[cppcms_session_array count]-1;
-    int index = (int)[cookie_array count]-1;
-    NSString *real_cookie = [cookie_array objectAtIndex:index];
-    NSString *cppcms_session_id = [cppcms_session_array objectAtIndex:cppcms_session_index];
-    NSMutableArray *cookie_mutable_array = [[NSMutableArray alloc] init];
-    [cookie_mutable_array addObject:real_cookie];
-    [cookie_mutable_array addObject:cppcms_session_id];
-    [self savecookieToplist:cookie_mutable_array];
     char *json = result->memory;
     NSString *json_result = [NSString stringWithUTF8String:json];
-    return [self.networkTools convert_json:json_result];
+    NSMutableDictionary *response_result = [self.networkTools convert_json:json_result];
+    if ([[response_result objectForKey:@"result"] isEqualToString:@"login success"]) {
+        NSString *response_cookie = [NSString stringWithUTF8String:cookie];
+        NSString *cppcms_session = [NSString stringWithUTF8String:session_id];
+        NSArray *cookie_array = [response_cookie componentsSeparatedByString:@"\t"];
+        NSArray *cppcms_session_array = [cppcms_session componentsSeparatedByString:@"\t"];
+        int cppcms_session_index = (int)[cppcms_session_array count]-1;
+        int index = (int)[cookie_array count]-1;
+        NSString *real_cookie = [cookie_array objectAtIndex:index];
+        NSString *cppcms_session_id = [cppcms_session_array objectAtIndex:cppcms_session_index];
+        NSMutableArray *cookie_mutable_array = [[NSMutableArray alloc] init];
+        [cookie_mutable_array addObject:real_cookie];
+        [cookie_mutable_array addObject:cppcms_session_id];
+        [self savecookieToplist:cookie_mutable_array];
+    }
+    return response_result;
 }
 
 - (NSMutableDictionary *)write_comment:(int)joke_id
@@ -94,6 +97,18 @@
     char *post_data = (char *)[data UTF8String];
     char *url = (char *)[request_url UTF8String];
     char *json = write_comment(url, post_cookie, post_data);
+    NSString *json_string = [NSString stringWithUTF8String:json];
+    return [self.networkTools convert_json:json_string];
+}
+
+- (NSMutableDictionary *)get_joke_list:(int)page_number
+{
+    int start_number = (page_number - 1)*10;
+    int length = 10;
+    NSString *request_uri = [NSString stringWithFormat:@"jokes?start_index=%d&length=%d", start_number, length];
+    NSString *request_url = [NSString stringWithFormat:self.baseurl, request_uri];
+    char *url = (char *)[request_url UTF8String];
+    char *json = get_comment(url);
     NSString *json_string = [NSString stringWithUTF8String:json];
     return [self.networkTools convert_json:json_string];
 }

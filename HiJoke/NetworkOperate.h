@@ -33,6 +33,8 @@
                              cookie:(NSString *)cookie
                             session:(NSString *)session;
 
+- (NSMutableDictionary *)get_joke_list:(int)page_number;
+
 //获取cookie
 - (NSMutableArray *)getCookies;
 

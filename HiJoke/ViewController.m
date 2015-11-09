@@ -13,6 +13,7 @@
 @interface ViewController ()<UIGestureRecognizerDelegate, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
 {
     UITapGestureRecognizer *clickWebView;
+    int current_page;
 }
 @end
 
@@ -38,18 +39,27 @@
                                                               blue:236.0/255
                                                              alpha:1.0] CGColor]];
     self.networkOperator = [[NetworkOperate alloc] init];
-    alldata = @[
-    @{@"comment_count":@0,@"content":@"我去年买了个登山包",@"id":@20,@"title":@"测试"},
-    @{@"comment_count":@0,@"content":@"我去年买了个登山包",@"id":@16,@"title":@"测试"},
-    @{@"comment_count":@0,@"content":@"我去年买了个登山包",@"id":@15,@"title":@"测试"},
-    @{@"comment_count":@0,@"content":@"乌云龙",@"id":@14,@"title":@"你是谁"},
-    @{@"comment_count":@0,@"content":@"world",@"id":@13,@"title":@"hello"},
-    @{@"comment_count":@0,@"content":@"内容10",@"id":@10,@"title":@"标题10"},
-    @{@"comment_count":@0,@"content":@"内容9",@"id":@9,@"title":@"标题9"},
-    @{@"comment_count":@1,@"content":@"内容7",@"id":@7,@"title":@"标题7"},
-    @{@"comment_count":@11,@"content":@"内容6",@"id":@6,@"title":@"标题6"},
-    @{@"comment_count":@0,@"content":@"内容5",@"id":@5,@"title":@"标题5"}
-    ];
+    __unsafe_unretained UITableView *tableView = self.jokeList;
+    tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        current_page = 1;
+        NSMutableDictionary *dict = [self.networkOperator get_joke_list:current_page];
+        alldata = [dict objectForKey:@"jokes"];
+        [self.jokeList reloadData];
+        [tableView.mj_header endRefreshing];
+    }];
+    tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        current_page += 1;
+        NSMutableDictionary *dict = [self.networkOperator get_joke_list:current_page];
+        if ([dict objectForKey:@"jokes"]) {
+            NSMutableArray *new_data = [dict objectForKey:@"jokes"];
+            [alldata addObjectsFromArray:new_data];
+            [self.jokeList reloadData];
+        }
+        [tableView.mj_footer endRefreshing];
+    }];
+    current_page = 1;
+    NSMutableDictionary *dict = [self.networkOperator get_joke_list:current_page];
+    alldata = [dict objectForKey:@"jokes"];
 }
 
 - (void)didReceiveMemoryWarning {
