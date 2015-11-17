@@ -68,7 +68,11 @@
     NSString *password = self.passwordTextInput.text;
     NSMutableDictionary * result = [self.networkOperate regist:username
                                                       password:password];
-    [self.alert setMessage:[result objectForKey:@"reason"]];
+    if ([username length]<1||[password length]<1) {
+        [self.alert setMessage:[result objectForKey:@"用户名或密码不能为空！"]];
+    }else{
+        [self.alert setMessage:[result objectForKey:@"reason"]];
+    }
     [self presentViewController:self.alert
                        animated:YES
                      completion:nil];
