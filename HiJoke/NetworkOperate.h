@@ -7,6 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <arpa/inet.h>
+#import <CommonCrypto/CommonHMAC.h>
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <netdb.h>
 #import "NetworkTools.h"
 #import "login_and_register.h"
 
@@ -40,5 +44,11 @@
 
 //存储cookie
 - (void)savecookieToplist:(NSMutableArray *)cookies;
+
+- (void)saveCache:(NSMutableArray *)cache;
+
+- (NSMutableArray *)getCache;
+
+- (BOOL)isConnectInternet;
 
 @end

@@ -350,6 +350,7 @@ char *get_comment(char *url)
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, chunk);
         curl_easy_setopt(curl, CURLOPT_COOKIEFILE, "");
         curl_easy_setopt(curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");
+        curl_easy_setopt(curl, CURLOPT_TIMEOUT, 5);
         res = curl_easy_perform(curl);
         if(res != CURLE_OK)
             fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
@@ -377,6 +378,7 @@ char *write_comment(char *url, char *cookie, char *data)
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, chunk);
         curl_easy_setopt(curl, CURLOPT_COOKIEFILE, "");
         curl_easy_setopt(curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");
+        curl_easy_setopt(curl, CURLOPT_TIMEOUT, 5);
         res = curl_easy_perform(curl);
         if(res != CURLE_OK)
             fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
@@ -403,6 +405,7 @@ char *user_register(char *url, char *usernamepassword)
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, chunk);
         curl_easy_setopt(curl, CURLOPT_COOKIEFILE, "");
         curl_easy_setopt(curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");
+        curl_easy_setopt(curl, CURLOPT_TIMEOUT, 5);
         res = curl_easy_perform(curl);
         if(res != CURLE_OK)
             fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
@@ -430,6 +433,7 @@ struct ResultStruct *login(char *url, char *usernamepassword)
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, chunk);
         curl_easy_setopt(curl, CURLOPT_COOKIEFILE, "");
         curl_easy_setopt(curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");
+        curl_easy_setopt(curl, CURLOPT_TIMEOUT, 5);
         res = curl_easy_perform(curl);
         cookie = get_cookies(curl);
         if(res != CURLE_OK)

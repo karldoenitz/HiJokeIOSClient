@@ -12,7 +12,7 @@
 
 - (id)init
 {
-    self.baseurl = @"http://10.205.48.99:8888/%@";
+    self.baseurl = @"http://192.168.1.103:8888/%@";
     self.networkTools = [[NetworkTools alloc] init];
     return self;
 }
@@ -128,6 +128,44 @@
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *plistpath = [bundle pathForResource:@"cookie_list" ofType:@"plist"];
     [cookies writeToFile:plistpath atomically:YES];
+}
+
+//写入缓存
+- (void)saveCache:(NSMutableArray *)cache
+{
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *plistpath = [bundle pathForResource:@"cache_list" ofType:@"plist"];
+    [cache writeToFile:plistpath atomically:YES];
+}
+
+//读取缓存
+- (NSMutableArray *)getCache
+{
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *plistpath = [bundle pathForResource:@"cache_list" ofType:@"plist"];
+    NSMutableArray *cache = [NSMutableArray arrayWithContentsOfFile:plistpath];
+    return cache;
+}
+
+//判断网络是否连接
+- (BOOL)isConnectInternet
+{
+    struct sockaddr_in zeroAddress;
+    bzero(&zeroAddress, sizeof(zeroAddress));
+    zeroAddress.sin_len = sizeof(zeroAddress);
+    zeroAddress.sin_family = AF_INET;
+    SCNetworkReachabilityRef defaultRouteReachability = SCNetworkReachabilityCreateWithAddress(NULL, (struct sockaddr *)&zeroAddress);
+    SCNetworkReachabilityFlags flags;
+    BOOL didRetrieveFlags = SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags);
+    CFRelease(defaultRouteReachability);
+    if (!didRetrieveFlags)
+    {
+        printf("Error. Could not recover network reachability flags\n");
+        return NO;
+    }
+    BOOL isReachable = ((flags & kSCNetworkFlagsReachable) != 0);
+    BOOL needsConnection = ((flags & kSCNetworkFlagsConnectionRequired) != 0);
+    return (isReachable && !needsConnection) ? YES : NO;
 }
 
 @end

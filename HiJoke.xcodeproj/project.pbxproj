@@ -32,6 +32,7 @@
 		135FE3961BE8490F00F34939 /* JokeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 135FE3941BE8490F00F34939 /* JokeListCell.xib */; };
 		135FE3991BE8A43800F34939 /* ShowCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135FE3981BE8A43800F34939 /* ShowCommentViewController.m */; };
 		135FE39F1BE8A87800F34939 /* NetworkTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135FE39E1BE8A87800F34939 /* NetworkTools.mm */; };
+		13A019281BFCD09400B12743 /* cache_list.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13A019271BFCD09400B12743 /* cache_list.plist */; };
 		13F3773D1BF07CE8000C68F0 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F377131BF07CE8000C68F0 /* MJRefreshAutoFooter.m */; };
 		13F3773E1BF07CE8000C68F0 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F377151BF07CE8000C68F0 /* MJRefreshBackFooter.m */; };
 		13F3773F1BF07CE8000C68F0 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F377171BF07CE8000C68F0 /* MJRefreshComponent.m */; };
@@ -123,6 +124,7 @@
 		135FE3981BE8A43800F34939 /* ShowCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowCommentViewController.m; sourceTree = "<group>"; };
 		135FE39D1BE8A87800F34939 /* NetworkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTools.h; sourceTree = "<group>"; };
 		135FE39E1BE8A87800F34939 /* NetworkTools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkTools.mm; sourceTree = "<group>"; };
+		13A019271BFCD09400B12743 /* cache_list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cache_list.plist; sourceTree = "<group>"; };
 		13F377121BF07CE8000C68F0 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		13F377131BF07CE8000C68F0 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		13F377141BF07CE8000C68F0 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				135FE2971BE38D8800F34939 /* Info.plist */,
 				135FE2861BE38D8800F34939 /* Supporting Files */,
 				1323124E1BEBA4B3002F9531 /* cookie_list.plist */,
+				13A019271BFCD09400B12743 /* cache_list.plist */,
 			);
 			path = HiJoke;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				135FE3961BE8490F00F34939 /* JokeListCell.xib in Resources */,
 				1323124D1BEB103C002F9531 /* CommentCell.xib in Resources */,
 				135FE2911BE38D8800F34939 /* Main.storyboard in Resources */,
+				13A019281BFCD09400B12743 /* cache_list.plist in Resources */,
 				13F3774B1BF07CE8000C68F0 /* MJRefresh.bundle in Resources */,
 				135FE2C71BE3CAA200F34939 /* hijoke.jpg in Resources */,
 			);

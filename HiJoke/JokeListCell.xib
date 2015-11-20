@@ -82,6 +82,12 @@
                     <constraint firstItem="gSB-e6-Uqy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="23" id="tju-kG-n9G"/>
                     <constraint firstItem="Daw-EM-VQq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="23" id="yg8-zV-EYl"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                        <integer key="value" value="10"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <animations/>
             <connections>

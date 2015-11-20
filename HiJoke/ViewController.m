@@ -39,27 +39,41 @@
                                                               blue:236.0/255
                                                              alpha:1.0] CGColor]];
     self.networkOperator = [[NetworkOperate alloc] init];
-    __unsafe_unretained UITableView *tableView = self.jokeList;
-    tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    if ([self.networkOperator isConnectInternet]) {
+        __unsafe_unretained UITableView *tableView = self.jokeList;
+        tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            current_page = 1;
+            NSMutableDictionary *dict = [self.networkOperator get_joke_list:current_page];
+            alldata = [dict objectForKey:@"jokes"];
+            if (alldata!=nil&&[alldata count]>0) {
+                [self.networkOperator saveCache:alldata];
+            }else{
+                alldata = [self.networkOperator getCache];
+            }
+            [self.jokeList reloadData];
+            [tableView.mj_header endRefreshing];
+        }];
+        tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+            current_page += 1;
+            NSMutableDictionary *dict = [self.networkOperator get_joke_list:current_page];
+            if ([dict objectForKey:@"jokes"]) {
+                NSMutableArray *new_data = [dict objectForKey:@"jokes"];
+                [alldata addObjectsFromArray:new_data];
+                [self.jokeList reloadData];
+            }
+            [tableView.mj_footer endRefreshing];
+        }];
         current_page = 1;
         NSMutableDictionary *dict = [self.networkOperator get_joke_list:current_page];
         alldata = [dict objectForKey:@"jokes"];
-        [self.jokeList reloadData];
-        [tableView.mj_header endRefreshing];
-    }];
-    tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        current_page += 1;
-        NSMutableDictionary *dict = [self.networkOperator get_joke_list:current_page];
-        if ([dict objectForKey:@"jokes"]) {
-            NSMutableArray *new_data = [dict objectForKey:@"jokes"];
-            [alldata addObjectsFromArray:new_data];
-            [self.jokeList reloadData];
+        if (alldata!=nil&&[alldata count]>0) {
+            [self.networkOperator saveCache:alldata];
+        }else{
+            alldata = [self.networkOperator getCache];
         }
-        [tableView.mj_footer endRefreshing];
-    }];
-    current_page = 1;
-    NSMutableDictionary *dict = [self.networkOperator get_joke_list:current_page];
-    alldata = [dict objectForKey:@"jokes"];
+    }else{
+        alldata = [self.networkOperator getCache];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
