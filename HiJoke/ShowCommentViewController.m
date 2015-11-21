@@ -25,6 +25,7 @@
     comment_data = [self.networkOperate get_comment:self.jokeID];
     self.commentTableView.dataSource = self;
     self.commentTableView.delegate = self;
+    self.commentTableView.backgroundColor = [UIColor colorWithRed:236.0/255.0 green:236.0/255.0 blue:236.0/255.0 alpha:1.0];
     [self.commentTableView registerNib:[UINib nibWithNibName:@"CommentCell"
                                                       bundle:nil]
                 forCellReuseIdentifier:cellID];

@@ -84,12 +84,18 @@
                 </constraints>
                 <userDefinedRuntimeAttributes>
                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                        <integer key="value" value="10"/>
+                        <integer key="value" value="20"/>
                     </userDefinedRuntimeAttribute>
                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                 </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <animations/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="15"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="commentButton" destination="OhH-1Y-x0d" id="rgP-c3-vsV"/>
                 <outlet property="content" destination="Daw-EM-VQq" id="Ocp-VE-XT2"/>

@@ -31,6 +31,7 @@
     [self.adWebview addGestureRecognizer:clickWebView];
     self.jokeList.delegate = self;
     self.jokeList.dataSource = self;
+    self.jokeList.backgroundColor = [UIColor colorWithRed:236.0/255.0 green:236.0/255.0 blue:236.0/255.0 alpha:1.0];
     [self.jokeList registerNib:[UINib nibWithNibName:@"JokeListCell"
                                               bundle:nil]
         forCellReuseIdentifier:cellID];
