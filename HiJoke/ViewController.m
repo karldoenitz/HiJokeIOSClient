@@ -152,9 +152,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
                                      NSFontAttributeName : [UIFont systemFontOfSize:14]
                                      }
                         context:nil];
-    
     height=height+labelRect.size.height+30;
-    
     return height;
 }
 

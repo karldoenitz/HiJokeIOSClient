@@ -262,13 +262,15 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjk-eK-xDE">
-                                <rect key="frame" x="20" y="370" width="170" height="30"/>
+                                <rect key="frame" x="20" y="370" width="266" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.4039215686" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1u7-DZ-CHy"/>
                                     <constraint firstAttribute="width" constant="200" id="gwd-YS-HjQ"/>
-                                    <constraint firstAttribute="width" constant="170" id="ss4-dy-bBz"/>
+                                    <constraint firstAttribute="width" constant="266" id="ss4-dy-bBz">
+                                        <variation key="widthClass=compact" constant="135"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <state key="normal" title="登录"/>
@@ -288,11 +290,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39m-ct-N5a">
-                                <rect key="frame" x="410" y="370" width="170" height="30"/>
+                                <rect key="frame" x="304" y="370" width="276" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.4039215686" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="170" id="WK8-WJ-CQf"/>
+                                    <constraint firstAttribute="width" constant="276" id="WK8-WJ-CQf">
+                                        <variation key="widthClass=compact" constant="135"/>
+                                    </constraint>
                                     <constraint firstAttribute="height" constant="30" id="hBu-UU-mfD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
@@ -336,7 +340,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t9D-FM-xIA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039" y="1367"/>
+            <point key="canvasLocation" x="1038" y="1367"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="I5G-J3-jS2">

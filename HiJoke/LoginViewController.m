@@ -69,7 +69,7 @@
     NSMutableDictionary * result = [self.networkOperate regist:username
                                                       password:password];
     if ([username length]<1||[password length]<1) {
-        [self.alert setMessage:[result objectForKey:@"用户名或密码不能为空！"]];
+        [self.alert setMessage:@"用户名或密码不能为空！"];
     }else{
         [self.alert setMessage:[result objectForKey:@"reason"]];
     }

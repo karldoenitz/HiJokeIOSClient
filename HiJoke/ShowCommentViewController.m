@@ -49,7 +49,16 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 200;
+    float height=120;
+    CGRect labelRect = [[[comment_data objectForKey:@"comments"][indexPath.row] objectForKey:@"comment"]
+                        boundingRectWithSize:CGSizeMake(tableView.frame.size.width-16, 0)
+                        options:NSStringDrawingUsesLineFragmentOrigin
+                        attributes:@{
+                                     NSFontAttributeName : [UIFont systemFontOfSize:14]
+                                     }
+                        context:nil];
+    height=height+labelRect.size.height+30;
+    return height;
 }
 
 //每一个cell
