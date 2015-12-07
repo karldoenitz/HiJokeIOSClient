@@ -12,7 +12,7 @@
 
 - (id)init
 {
-    self.baseurl = @"http://192.168.1.144:8888/%@";
+    self.baseurl = @"http://107.191.61.114:8888/%@";
     self.networkTools = [[NetworkTools alloc] init];
     return self;
 }
@@ -21,7 +21,7 @@
 {
     NSString *url = [NSString stringWithFormat:@"get-comment/?joke_id=%d", joke_id];
     NSString *request_url = [NSString stringWithFormat:self.baseurl, url];
-    char *json = get_comment((char *)[request_url UTF8String]);
+    const char *json = get_comment((char *)[request_url UTF8String]);
     NSString *result = [NSString stringWithUTF8String:json];
     return [self.networkTools convert_json:result];
 }
@@ -32,7 +32,7 @@
     char *request_url = (char *)[[NSString stringWithFormat:self.baseurl, @"register/"] UTF8String];
     NSString *usernamepassword = [NSString stringWithFormat:@"username=%@&password=%@", username, password];
     char *regist_usernamepassword = (char *)[usernamepassword UTF8String];
-    char *json = user_register(request_url, regist_usernamepassword);
+    const char *json = user_register(request_url, regist_usernamepassword);
     NSString *result = [NSString stringWithUTF8String:json];
     NSMutableDictionary *dictionary = [self.networkTools convert_json:result];
     return dictionary;
@@ -47,7 +47,7 @@
     struct ResultStruct *result = login(request_url, login_usernamepassword);
     char *cookie = result->cookie_list;
     char *session_id = result->session_id;
-    char *json = result->memory;
+    const char *json = result->memory;
     NSString *json_result = [NSString stringWithUTF8String:json];
     NSMutableDictionary *response_result = [self.networkTools convert_json:json_result];
     if ([[response_result objectForKey:@"result"] isEqualToString:@"login success"]) {
@@ -79,7 +79,7 @@
     char *url = (char *)[request_url UTF8String];
     char *real_cookie = (char *)[post_cookie UTF8String];
     char *real_data = (char *)[data UTF8String];
-    char *json = write_comment(url, real_cookie, real_data);
+    const char *json = write_comment(url, real_cookie, real_data);
     NSString *json_result = [NSString stringWithUTF8String:json];
     return [self.networkTools convert_json:json_result];
 }
@@ -96,7 +96,7 @@
     char *post_cookie = (char *)[cookie_session UTF8String];
     char *post_data = (char *)[data UTF8String];
     char *url = (char *)[request_url UTF8String];
-    char *json = write_comment(url, post_cookie, post_data);
+    const char *json = write_comment(url, post_cookie, post_data);
     NSString *json_string = [NSString stringWithUTF8String:json];
     return [self.networkTools convert_json:json_string];
 }
@@ -108,7 +108,7 @@
     NSString *request_uri = [NSString stringWithFormat:@"jokes?start_index=%d&length=%d", start_number, length];
     NSString *request_url = [NSString stringWithFormat:self.baseurl, request_uri];
     char *url = (char *)[request_url UTF8String];
-    char *json = get_comment(url);
+    const char *json = get_comment(url);
     NSString *json_string = [NSString stringWithUTF8String:json];
     return [self.networkTools convert_json:json_string];
 }

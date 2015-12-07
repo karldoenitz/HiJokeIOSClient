@@ -15,19 +15,14 @@
 #include "curl.h"
 
 struct ResultStruct {
-    char *memory;
+    const char *memory;
     char *cookie_list;
     char *session_id;
 };
 
-struct MemoryStruct {
-    char *memory;
-    size_t size;
-};
-
 struct ResultStruct *login(char *url, char *usernamepassword);
-char *get_comment(char *url);
-char *user_register(char *url, char *usernamepassword);
-char *write_comment(char *url, char *cookie, char *data);
+const char *get_comment(char *url);
+const char *user_register(char *url, char *usernamepassword);
+const char *write_comment(char *url, char *cookie, char *data);
 
 #endif /* defined(__YumNoteBook__login_and_register__) */
