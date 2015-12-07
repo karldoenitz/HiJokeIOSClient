@@ -12,7 +12,7 @@
 
 - (id)init
 {
-    self.baseurl = @"http://107.191.61.114:8888/%@";
+    self.baseurl = @"http://localhost:8888/%@";
     self.networkTools = [[NetworkTools alloc] init];
     return self;
 }
