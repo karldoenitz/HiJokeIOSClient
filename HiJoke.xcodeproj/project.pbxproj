@@ -33,6 +33,8 @@
 		135FE3991BE8A43800F34939 /* ShowCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135FE3981BE8A43800F34939 /* ShowCommentViewController.m */; };
 		135FE39F1BE8A87800F34939 /* NetworkTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 135FE39E1BE8A87800F34939 /* NetworkTools.mm */; };
 		13A019281BFCD09400B12743 /* cache_list.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13A019271BFCD09400B12743 /* cache_list.plist */; };
+		13A57C631C1582AA006C241C /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 13A57C5D1C15806F006C241C /* libstdc++.tbd */; };
+		13A57C651C1582C5006C241C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 13A57C5F1C15807E006C241C /* libc++.tbd */; };
 		13F3773D1BF07CE8000C68F0 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F377131BF07CE8000C68F0 /* MJRefreshAutoFooter.m */; };
 		13F3773E1BF07CE8000C68F0 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F377151BF07CE8000C68F0 /* MJRefreshBackFooter.m */; };
 		13F3773F1BF07CE8000C68F0 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F377171BF07CE8000C68F0 /* MJRefreshComponent.m */; };
@@ -125,6 +127,9 @@
 		135FE39D1BE8A87800F34939 /* NetworkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTools.h; sourceTree = "<group>"; };
 		135FE39E1BE8A87800F34939 /* NetworkTools.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NetworkTools.mm; sourceTree = "<group>"; };
 		13A019271BFCD09400B12743 /* cache_list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cache_list.plist; sourceTree = "<group>"; };
+		13A57C5D1C15806F006C241C /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		13A57C5F1C15807E006C241C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		13A57C611C158296006C241C /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		13F377121BF07CE8000C68F0 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		13F377131BF07CE8000C68F0 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		13F377141BF07CE8000C68F0 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -170,6 +175,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13A57C651C1582C5006C241C /* libc++.tbd in Frameworks */,
+				13A57C631C1582AA006C241C /* libstdc++.tbd in Frameworks */,
 				132311F41BEA4A61002F9531 /* QuartzCore.framework in Frameworks */,
 				132311F21BEA4A29002F9531 /* libz.1.2.5.tbd in Frameworks */,
 				132311F81BEA4ACC002F9531 /* libcurl.a in Frameworks */,
@@ -256,6 +263,9 @@
 		135FE27A1BE38D8800F34939 = {
 			isa = PBXGroup;
 			children = (
+				13A57C611C158296006C241C /* libstdc++.6.0.9.tbd */,
+				13A57C5F1C15807E006C241C /* libc++.tbd */,
+				13A57C5D1C15806F006C241C /* libstdc++.tbd */,
 				132311F31BEA4A61002F9531 /* QuartzCore.framework */,
 				132311F11BEA4A29002F9531 /* libz.1.2.5.tbd */,
 				135FE2851BE38D8800F34939 /* HiJoke */,

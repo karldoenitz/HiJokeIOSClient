@@ -27,13 +27,13 @@
                                 </constraints>
                             </webView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ayM-lC-qsp">
-                                <rect key="frame" x="0.0" y="64" width="600" height="438"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="486"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.92576152150000002" green="0.92576152150000002" blue="0.92576152150000002" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nj7-lY-4bd">
-                                <rect key="frame" x="0.0" y="501" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.4039215686" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -54,12 +54,12 @@
                             <constraint firstItem="Oz0-Wm-WJg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="T3E-cJ-i9G"/>
                             <constraint firstItem="ayM-lC-qsp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UUF-Ph-vjq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Oz0-Wm-WJg" secondAttribute="bottom" id="Ujd-Jw-gyU"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Nj7-lY-4bd" secondAttribute="bottom" constant="49" id="bBC-M8-JDd"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Nj7-lY-4bd" secondAttribute="bottom" id="bBC-M8-JDd"/>
                             <constraint firstAttribute="trailing" secondItem="Oz0-Wm-WJg" secondAttribute="trailing" id="cwt-9E-DcP"/>
                             <constraint firstItem="Oz0-Wm-WJg" firstAttribute="top" secondItem="ayM-lC-qsp" secondAttribute="bottom" id="fm0-OX-Zh9"/>
                             <constraint firstAttribute="trailing" secondItem="ayM-lC-qsp" secondAttribute="trailing" id="j92-gG-dVi"/>
                             <constraint firstItem="ayM-lC-qsp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="l3o-f3-ofh"/>
-                            <constraint firstItem="Oz0-Wm-WJg" firstAttribute="top" secondItem="ayM-lC-qsp" secondAttribute="bottom" constant="48" id="lPl-zw-vrN"/>
+                            <constraint firstItem="Oz0-Wm-WJg" firstAttribute="top" secondItem="ayM-lC-qsp" secondAttribute="bottom" id="lPl-zw-vrN"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

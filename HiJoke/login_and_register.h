@@ -26,14 +26,6 @@ struct MemoryStruct {
 };
 
 struct ResultStruct *login(char *url, char *usernamepassword);
-char *regist(char *usernamepassword);
-void freeResultStruct(struct ResultStruct *rs);
-char *getrealcookie(char *cookie);
-char *getContentTitles(char *user_id,char *cookie);
-char *getContent(char *url,char *user_id, char *cookie, char *title, char *contentdate);
-char *updateContent(char *cookie, char *data);
-char *addContent(char *cookie, char *data);
-
 char *get_comment(char *url);
 char *user_register(char *url, char *usernamepassword);
 char *write_comment(char *url, char *cookie, char *data);
