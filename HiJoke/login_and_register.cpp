@@ -18,12 +18,6 @@ static size_t WriteMemoryCallback(char *contents, size_t size, size_t nmemb, str
 {
     size_t realsize = size * nmemb;
     userp->memory.append(contents);
-//    if(userp->memory == NULL) {
-//        /* out of memory! */
-//        printf("not enough memory (realloc returned NULL)\n");
-//        return 0;
-//    }
-    
     return realsize;
 }
 
